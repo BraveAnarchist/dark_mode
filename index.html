@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge initial-scale=1.0" />
+    <title>Dark Mode Toggle</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+        color:black;
+        background-color: white;
+        font-size: 25px;
+        padding-top: 3rem;
+    }
+    .container{
+        display:flex;
+        justify-content: space-between;
+        background-color: black;
+        width:7rem;
+        height:3.5rem;
+        border-radius: 40px;
+        padding:7px;
+        margin: 0 auto;
+        position: relative;
+    }
+    h1{
+        margin-top: 5rem;
+        text-align: center;
+        font-size: 5rem;
+    }
+    i{
+        color:orange;
+        font-size: 2.5rem;
+    }
+    .switch{
+        background-color:white;
+        height: 2.7rem;
+        width: 2.7rem;
+        position: absolute;
+        left:6px;
+        border-radius:50%;
+        
+        transition: all 0.7s;
+        transition-timing-function: linear;
+    }
+    /* .container:hover .switch{
+        left:57%;
+    } */
+    .light-mode{
+        background-color: white;
+        color: black;
+    }
+    .dark-mode {
+        background-color: black;
+        color: white;
+    }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"><i class="fas fa-sun"></i></div>
+        <div class="moon"><i class="fas fa-moon"></i></div>
+        <div class="switch"></div>
+    </div>
+    <h1>Click on the Toggle Button</h1>
+
+
+    <script>
+        const switcher = document.querySelector(".container");
+        const circle=document.querySelector(".switch")
+        let flag=1;
+        switcher.addEventListener("click", () => {
+            if(flag<1){
+                document.body.classList.toggle('dark-mode');
+                circle.style.cssText="left:6px;";
+                switcher.style.cssText="background-color:#black"
+                flag=1;
+            }
+            else{
+                document.body.classList.toggle('dark-mode');
+                circle.style.cssText="left:57%;";
+                switcher.style.cssText="background-color:#404040";
+                flag=0;
+            }
+            
+        });
+    </script>
+</body>
+</html>
